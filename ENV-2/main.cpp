@@ -20,6 +20,6 @@ int n = 15;
 
 b = a * n;
 
-Sort(numbers);
+bubble(numbers);
 
 }

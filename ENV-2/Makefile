@@ -1,22 +1,16 @@
-CXX = g++
+all: program
 
-CXXFLAGS = -Wall -std=c++17
-
-TARGET = main_file
-
-OBJS = main.o Complex.o Sort.o
-
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+program: main.o Complex.o Sort.o
+	g++ -o program main.o Complex.o Sort.o
 
 main.o: main.cpp Complex.h Sort.h
-	$(CXX) $(CXXFLAGS) -c main.cpp
+	g++ -c main.cpp -o main.o
 
 Complex.o: Complex.cpp Complex.h
-	$(CXX) $(CXXFLAGS) -c Complex.cpp
+	g++ -c Complex.cpp -o Complex.o
 
 Sort.o: Sort.cpp Sort.h
-	$(CXX) $(CXXFLAGS) -c Sort.cpp
+	g++ -c Sort.cpp -o Sort.o
 
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f main.o Complex.o Sort.o program
